@@ -1,27 +1,22 @@
-import modelClient from "../database/models/modelClient.js";
+import modelVoiture from "../database/models/modelClient.js";
 
-export async function AjouterClient(req,res) {
+export async function AjouterVoiture(req,res) {
     try {
-        const { nom, prenom, addresse, telephone } = req.body;
-        const creeClient = await modelClient.create({
-            nom, prenom, addresse, telephone
+        const { modele, marque, couleur, immatriculation} = req.body;
+        const creeVoiture = await modelVoiture.create({
+            modele, marque, couleur, immatriculation
         })
-        res.status(200).json(creeClient)
+        res.status(200).json(creeVoiture)
     } catch (error) {
         res.status(500).json({message: error})
-    } finally{
-        console.log('ajouté avec succès...')
     }
 };
 
-export async function afficherClient(req,res) {
+export async function afficherVoiture(req,res) {
     try {
-        const afficher = await modelClient.find({})
+        const afficher = await modelVoiture.find({})
         res.status(200).json(afficher)
     } catch (error) {
         res.status(500).json({message: error})
-    } finally{
-        const afficher = await modelClient.find({})
-        console.log('affiché avec succès...',afficher)
     }
 };

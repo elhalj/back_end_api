@@ -1,24 +1,24 @@
 import mongoose from "mongoose"
-let numero = 1
 
-const schemaClient = new mongoose.Schema({
-    nom:{
+
+const schemaVoiture = new mongoose.Schema({
+    modele:{
         type: String,
     },
-    prenom:{
+    marque:{
         type: String,
     },
-    addresse:{
+    couleur:{
         type: String,
     },
-    telephone:{
-        type: Number,
+    immatriculation:{
+        type: String,
     },
     id:{
         type: Number,
-        default: numero += 1
-    }
+        default: 1
+    },
 });
 
-const modelClient = mongoose.model('Client',schemaClient);
-export default modelClient;
+const modelVoiture = mongoose.model('Voiture',schemaVoiture);
+export default modelVoiture;

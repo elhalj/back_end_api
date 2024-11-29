@@ -5,7 +5,7 @@ class Database {
         this.connect();
     }
     connect() {
-        mongoose.connect('mongodb://localhost:27017/Client')
+        mongoose.connect('mongodb://localhost:27017/Informations')
             .then(() => console.log('Connected to MongoDB succefully...'))
             .catch (() => console.log({message: error}))
     }
